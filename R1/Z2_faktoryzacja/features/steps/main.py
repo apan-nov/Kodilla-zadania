@@ -9,10 +9,16 @@
 from contextlib import suppress
 from behave import given
 
-
-################
+number = ""
 list_of_divisors = []
-number = int(input("Podaj liczbę: "))
+
+while True:
+	try:
+		number = int(input("Podaj liczbę: "))
+	except ValueError:
+		continue
+	else:
+		break
 
 
 def prime_factors(number2: int):
@@ -25,14 +31,11 @@ def prime_factors(number2: int):
 		elif divider <= number2:
 			divider += 1
 	return list_of_divisors
-	# return
-# 1) Write tests that pass only if feature specifications are met
 
 
 # number is not a number
 @given("not_a_number")
 def not_a_number(self):
-	number2 = 'asd{}:}:'
 	result = prime_factors(number)
 	assert result is not None, "this should be WrongInputError"
 
@@ -48,7 +51,6 @@ def null(self):
 # number is not an int
 @given("not_a_int")
 def not_a_int(self):
-	number2 = '123.15'
 	result = prime_factors(number)
 	assert result is not None, "this should be NotIntInputError"
 
@@ -56,7 +58,6 @@ def not_a_int(self):
 # number is 0
 @given("not_a_zero")
 def not_a_zero(self):
-	number2 = '0'
 	result = prime_factors(number)
 	assert result is not None, "this should be ZeroInputError"
 
@@ -64,7 +65,6 @@ def not_a_zero(self):
 # number is negative int
 @given("negrative_int")
 def negrative_int(self):
-	number2 = '-12'
 	result = prime_factors(number)
 	assert result is not None, "this should be NegativeIntInputError"
 
@@ -72,7 +72,6 @@ def negrative_int(self):
 # number is Prime number
 @given("prime_number")
 def prime_number(self):
-	number2 = '13'
 	result = prime_factors(number)
 	assert type(result) == list, "this should be Prime"
 
@@ -80,18 +79,16 @@ def prime_number(self):
 # number is not a Prime number
 @given("not_a_prime_number")
 def not_a_prime_number(self):
-	number2 = '21'
 	result = prime_factors(number)
 	assert type(result) == list, "this should be NotPrime"
 
-
+# 1) Write tests that pass only if feature specifications are met - DONE
 # 2) Fail all of those tests () - DONE
 
-
-# 3) Write SIMPLEST code to pass those test
+# 3) Write SIMPLEST code to pass those test - DONE
 
 # (simplest code dosn't have to be great- just meets specification, do the job and be simple0
 
-# 4) Run ALL test- they all needs to work
+# 4) Run ALL test- they all needs to work - DONE
 
 # 5) Refactor and improve
