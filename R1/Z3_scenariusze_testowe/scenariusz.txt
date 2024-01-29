@@ -1,0 +1,367 @@
+Wyobraź sobie, że pracujesz nad projektem prostego komunikatora. System, który tworzysz, ma oferować użytkownikowi następujące funkcjonalności:
+
+stworzenie konta,
+zalogowanie się,
+dodanie innego użytkownika do znajomych
+wysyłanie sobie wiadomości.
+Przygotuj scenariusze testowe dla tego systemu.
+#########################################################################################################################################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Scenariusz testowy	
+Identyfikator	1
+Nazwa	Stworzenie konta
+Opis	Użytkownik może stworzyć nowe konto w systemie.
+Typ	Funkcjonalny
+Prerekwizyty	Użytkownik nie posiada konta w systemie, nie jest zalogowany. Użytkowanik posiada adres email, który nie ma powiązanego konta w systemie. 
+W systemie istnieje co najmniej jedno konto, którego login i powiązany adres email zna użykowanik.
+##########
+#########
+Przypadek testowy	
+Identyfikator	1.1
+Nazwa	Storzenie konta akceptowalnymi danymi
+Opis	Sprawdzenie, czy użytkownik może stworzyć nowe konto podając akceptowalne dane
+Kroki	
+1. Użytkownik wchodzi na stronę tworzenia konta.
+
+2. Użytkownik wpisuje akceptowalny login.
+
+3. Użytkownik wpisuje akceptowalne hasło.
+
+4. Użytkownik podaje adres email, który nie ma powiązanego konta w systemie.
+
+5. Użytkownik klika przycisk „Utwórz konto”.
+
+6. Użytkownik otrzymuja maila pozwalającego na aktywację konta.
+
+7. Użytkownik aktywuje konto.
+
+Oczekiwania	Nowe konto zostaje utworzone, pojawia się komunikat o utworzeniu konta.
+###########
+Przypadek testowy	
+Identyfikator	1.2
+Nazwa	Stworzenie konta z już istenijącym loginem
+Opis	Sprawdzenie, czy użytkownik nie może utworzyć konta w systemie, podając już istenijący login
+Kroki	
+1. Użytkownik wchodzi na stronę tworzenia konta.
+
+2. Użytkownik wpisuje login istniejący w systemie.
+
+3. Użytkownik wpisuje akceptowalne hasło.
+
+4. Użytkownik podaje adres email, który nie ma powiązanego konta w systemie.
+
+5. Użytkownik klika przycisk „Utwórz konto”.
+
+Oczekiwania	Nowe konto nie zostaje utworzone, pojawia się komunikat o nie utworzeniu konta z powodu wprowadzenia loginu zajętego przez innego użytkowanika.
+###########
+Przypadek testowy	
+Identyfikator	1.3
+Nazwa	Stworzenie konta ze zbyt krótkim hasłem
+Opis	Sprawdzenie, czy użytkownik nie może utworzyć konta w systemie, podając zbyt krótkie hasło
+Kroki	
+1. Użytkownik wchodzi na stronę tworzenia konta.
+
+2. Użytkownik wpisuje akceptowalny login.
+
+3. Użytkownik wpisuje zbyt krótkie hasło.
+
+4. Użytkownik podaje adres email, który nie ma powiązanego konta w systemie.
+
+5. Użytkownik klika przycisk „Utwórz konto”.
+
+Oczekiwania	Nowe konto nie zostaje utworzone, pojawia się komunikat o nie utworzeniu konta z powodu wprowadzenia zbyt krótkiego hasła.
+###########
+Przypadek testowy	
+Identyfikator	1.4
+Nazwa	Stworzenie konta ze zbyt prostym hasłem
+Opis	Sprawdzenie, czy użytkownik nie może utworzyć konta w systemie, podając zbyt prostym hasło
+Kroki	
+1. Użytkownik wchodzi na stronę tworzenia konta.
+
+2. Użytkownik wpisuje akceptowalny login.
+
+3. Użytkownik wpisuje zbyt proste hasło.
+
+4. Użytkownik podaje adres email, który nie ma powiązanego konta w systemie.
+
+5. Użytkownik klika przycisk „Utwórz konto”.
+
+Oczekiwania	Nowe konto nie zostaje utworzone, pojawia się komunikat o nie utworzeniu konta z powodu wprowadzenia zbyt prostego hasła.
+###########
+Przypadek testowy	
+Identyfikator	1.5
+Nazwa	Stworzenie konta z istniejącym adresem email 
+Opis	Sprawdzenie, czy użytkownik nie może utworzyć konta w systemie, gdy podał adres email już powiązany z kontem w systemie
+Kroki	
+1. Użytkownik wchodzi na stronę tworzenia konta.
+
+2. Użytkownik nie wpisuje loginu.
+
+3. Użytkownik nie wpisuje hasła.
+
+4. Użytkownik podaje adres email, który ma powiązane konto w systemie.
+
+5. Użytkownik klika przycisk „Utwórz konto”.
+
+Oczekiwania	Nowe konto nie zostaje utworzone, pojawia się komunikat o istnieju konta powiązanym z tym adresem email.
+###########
+Przypadek testowy	
+Identyfikator	1.6
+Nazwa	Stworzenie konta z pustymi danymi
+Opis	Sprawdzenie, czy użytkownik nie może utworzyć konta w systemie, podając pusty login i hasło
+Kroki	
+1. Użytkownik wchodzi na stronę tworzenia konta.
+
+2. Użytkownik nie wpisuje loginu.
+
+3. Użytkownik nie wpisuje hasła.
+
+4. Użytkownik podaje adres email, który nie ma powiązanego konta w systemie.
+
+5. Użytkownik klika przycisk „Utwórz konto”.
+
+Oczekiwania	Nowe konto nie zostaje utworzone, pojawia się komunikat o nie utworzeniu konta z nie wprowadzenia loginu i hasła.
+###########
+Przypadek testowy	
+Identyfikator	1.7
+Nazwa	Stworzenie konta podczas awarii systemu pocztowego 
+Opis	Sprawdzenie, czy użytkownik nie może utworzyć konta w systemie, gdy nastąpiła awaria serwisu pocztowego
+Kroki	
+1. Użytkownik wchodzi na stronę tworzenia konta.
+
+2. Użytkownik nie wpisuje loginu.
+
+3. Użytkownik nie wpisuje hasła.
+
+4. Użytkownik podaje adres email, który nie ma powiązanego konta w systemie.
+
+5. Użytkownik klika przycisk „Utwórz konto”.
+
+Oczekiwania	Nowe konto nie zostaje utworzone, pojawia się komunikat o awarii systemu i koniecznosi ponownej rejestracji później.
+
+##########################################################################################################################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Scenariusz testowy	
+Identyfikator	2
+Nazwa	Logowanie
+Opis	Użytkownik może zalogować się do systemu, podając login i hasło.
+Typ	Funkcjonalny
+Prerekwizyty	Użytkownik nie jest zalogowany, ma konto w systemie.
+#########################
+########################
+Przypadek testowy	
+Identyfikator	2.1
+Nazwa	Logowanie z poprawnymi danymi
+Opis	Sprawdzenie, czy użytkownik może zalogować się do systemu, podając poprawne dane
+Kroki	
+1. Użytkownik wchodzi na stronę logowania.
+
+2. Użytkownik wpisuje poprawny login.
+
+3. Użytkownik wpisuje poprawne hasło.
+
+4. Użytkownik klika przycisk „Zaloguj się”.
+
+Oczekiwania	Użytkownik zostaje zalogowany, pojawia się komunikat o poprawnym zalogowaniu, dostępne są opcje zarezerwowane dla zalogowanych użytkowników.
+#############################
+Przypadek testowy	
+Identyfikator	2.2
+Nazwa	Logowanie z niepoprawnymi danymi
+Opis	Sprawdzenie, czy użytkownik nie może zalogować się do systemu, podając niepoprawne dane
+Kroki	
+1. Użytkownik wchodzi na stronę logowania.
+
+2. Użytkownik wpisuje niepoprawny login.
+
+3. Użytkownik wpisuje niepoprawne hasło.
+
+4. Użytkownik klika przycisk „Zaloguj się”.
+
+Oczekiwania	Użytkownik nie zostaje zalogowany, pojawia się komunikat o niepoprawnym zalogowaniu, dostępne są opcje zarezerwowane dla niezalogowanych użytkowników.
+################################
+Przypadek testowy	
+Identyfikator	2.3
+Nazwa	Logowanie z pustymi danymi
+Opis	Sprawdzenie, czy użytkownik nie może zalogować się do systemu, podając puste dane
+Kroki	
+1. Użytkownik wchodzi na stronę logowania.
+
+2. Użytkownik nie wpisuje loginu.
+
+3. Użytkownik nie wpisuje hasła.
+
+4. Użytkownik klika przycisk „Zaloguj się”.
+
+Oczekiwania	Użytkownik nie zostaje zalogowany, pojawia się komunikat o potrzebnie wprowadzenia danych.
+##########################################################################################################################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Scenariusz testowy	
+Identyfikator	3
+Nazwa	Dodanie do znajomych
+Opis	Użytkownik dodanie innego użytkownika do znajomych
+Typ	Funkcjonalny
+Prerekwizyty	Użytkownik jest zalogowany, ma konto w systemie. W systemie istnieje co najmniej jeden inny użytkownik, ktorego login zna użykowanik.
+				Posiadamy konto drugiego użytkownika.
+#########################
+########################
+Przypadek testowy	
+Identyfikator	3.1
+Nazwa	Dodanie znajomego
+Opis	Sprawdzenie, czy użytkownik może dodać innego użytkownika do znajomych
+Kroki	
+1. Użytkownik wyszukuje istniejącego znajomego.
+
+2. Użytkownik klika przycisk "Wyślij zaproszenie".
+
+3. Zaproszenie zostaje zakceptowane.
+
+Oczekiwania	Użytkownik dodał innego użytkownika do swojej listy znajomych. Drugi użytkownik również dodał pierwszeo użykownika do swojej listy znajomych.
+#########################
+Przypadek testowy	
+Identyfikator	3.1
+Nazwa	Dodanie znajomego
+Opis	Sprawdzenie, czy użytkownik może dodać innego użytkownika do znajomych
+Kroki	
+1. Użytkownik wyszukuje istniejącego znajomego.
+
+2. Użytkownik klika przycisk "Wyślij zaproszenie".
+
+3. Zaproszenie zostaje zakceptowane.
+
+Oczekiwania	Użytkownik dodał innego użytkownika do swojej listy znajomych. Drugi użytkownik również dodał pierwszeo użykownika do swojej listy znajomych.
+#########################
+Przypadek testowy	
+Identyfikator	3.2
+Nazwa	Wyłanie zaproszenia do znajomego bez akceptacji
+Opis	Sprawdzenie, czy użytkownik nie może dodać innego użytkownika do znajomych, jeśli zaproszenie nie zostało zaakceptowane
+Kroki	
+1. Użytkownik wyszukuje istniejącego znajomego.
+
+2. Użytkownik klika przycisk "Wyślij zaproszenie".
+
+3. Zaproszenie zostaje nie zostaje zakceptowane.
+
+Oczekiwania	Użytkownik nie dodał innego użytkownika do swojej listy znajomych. Drugi użytkownik również nie dodał pierwszeo użykownika do swojej listy znajomych.
+			Zaproszenie do tego samego użytkownika nie może zostać wysłane ponownie.
+#########################
+Przypadek testowy	
+Identyfikator	3.3
+Nazwa	Wyłanie zaproszenia do znajomego z odrzuceniem
+Opis	Sprawdzenie, czy użytkownik nie może dodać innego użytkownika do znajomych, jeśli zaproszenie zostało odrzucone
+Kroki	
+1. Użytkownik wyszukuje istniejącego znajomego.
+
+2. Użytkownik klika przycisk "Wyślij zaproszenie".
+
+3. Zaproszenie zostaje odrzucone.
+
+Oczekiwania	Użytkownik nie dodał innego użytkownika do swojej listy znajomych. Drugi użytkownik również nie dodał pierwszeo użykownika do swojej listy znajomych.
+			Zaproszenie do tego samego użytkownika nie może zostać wysłane ponownie.
+#########################
+Przypadek testowy	
+Identyfikator	3.4
+Nazwa	Wyszukiwanie znajomego bez wysłania zaproszenia
+Opis	Sprawdzenie, czy użytkownik nie może dodać innego użytkownika do znajomych, jeśli zaproszenie nie zostało wysłane
+Kroki	
+1. Użytkownik wyszukuje istniejącego znajomego.
+
+2. Użytkownik nie klika przycisku "Wyślij zaproszenie".
+
+Oczekiwania	Użytkownik nie dodał innego użytkownika do swojej listy znajomych. Drugi użytkownik również nie dodał pierwszeo użykownika do swojej listy znajomych.
+			Nie otrzymał on rónież zaproszenia od pierwszego użytkownika.
+#############################
+Przypadek testowy	
+Identyfikator	3.5
+Nazwa	Wyszukiwanie nieistenijącego znajomego bez wysłania zaproszenia
+Opis	Sprawdzenie, czy użytkownik nie może dodać do znajomych nieistniejącego
+Kroki	
+1. Użytkownik wyszukuje nieistniejącego znajomego.
+
+
+Oczekiwania	Użytkownik nie dodał innego nieistniejącego do swojej listy znajomych. Przycisk "Wyślij zaproszenie" pozostaje niektywny. Pojawia się komunikat o braku wyszykiwanego użytkownika w systemie.
+##########################################################################################################################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Scenariusz testowy	
+Identyfikator	4
+Nazwa	Wysyłanie wiadomości
+Opis	Użytkownik wysyła innemu użytkownikowi wiadomość
+Typ	Funkcjonalny
+Prerekwizyty	Użytkownik jest zalogowany, ma konto w systemie. W systemie istnieje co najmniej dówch inny użytkowników, ktorego loginy zna użykowanik.
+				Jedne z tych dówch użytkowników jest na naszej liście znajomych.
+#########################
+########################
+Przypadek testowy	
+Identyfikator	4.1
+Nazwa	Wysyłanie wiadmomości do obcego użytkownika
+Opis	Sprawdzenie, czy użytkownik może wysłać wiadomość do użytkownika nie bedącego znajomym
+Kroki	
+1. Użytkownik wyszukuje istniejącego użytkownika, który nie zjaduje się na jego liście znajomych.
+
+2. Redaguje poprawną wiadomość.
+
+3. Użykownik klika przycisk "Wyślij wiadomość".
+
+Oczekiwania	Użytkownik wysłał wiadomość innego użytkownika nie będącego na jego liście znajomych. Drugi użytkownik otrzymał tą wiadomość.
+########################
+Przypadek testowy	
+Identyfikator	4.2
+Nazwa	Wysyłanie wiadmomości do użytkownika z listy znajomych
+Opis	Sprawdzenie, czy użytkownik może wysłać wiadomość do użytkownika nie bedącego znajomym
+Kroki	
+1. Użytkownik wyszukuje istniejącego użytkownika, który zjaduje się na jego liście znajomych.
+
+2. Redaguje poprawną wiadomość.
+
+3. Użykownik klika przycisk "Wyślij wiadomość".
+
+Oczekiwania	Użytkownik wysłał wiadomość innego użytkownika będącego na jego liście znajomych. Drugi użytkownik otrzymał tą wiadomość.
+########################
+Przypadek testowy	
+Identyfikator	4.3
+Nazwa	Wysyłanie wiadmomości do nieistniejącego użytkownika
+Opis	Sprawdzenie, czy użytkownik nie może wysłać wiadomości do użytkownika, ktory nie istnieje w systemie
+Kroki	
+1. Użytkownik wyszukuje użytkownika, który nie istnieje w systemie
+
+2. Redaguje poprawną wiadomość.
+
+Oczekiwania	Użytkownik nie wysłał wiadomości do nieistniejącego użytkownika. Przycisk "Wyślij wiadomość" pozostaje nieaktywny.
+########################
+Przypadek testowy	
+Identyfikator	4.4
+Nazwa	Wysyłanie wiadmomości do nieistniejącego użytkownika
+Opis	Sprawdzenie, czy użytkownik nie może wysłać wiadomości do użytkownika, ktory nie istnieje w systemie
+Kroki	
+1. Użytkownik wyszukuje użytkownika, który nie istnieje w systemie
+
+2. Redaguje poprawną wiadomość.
+
+Oczekiwania	Użytkownik nie wysłał wiadomości do nieistniejącego użytkownika. Przycisk "Wyślij wiadomość" pozostaje nieaktywny.
+########################
+Przypadek testowy	
+Identyfikator	4.5
+Nazwa	Wysyłanie pustej wiadmomości do istniejącego użytkownika
+Opis	Sprawdzenie, czy użytkownik nie może wysłać pustej wiadomości do użytkownika, ktory istnieje w systemie
+Kroki	
+1. Użytkownik wyszukuje użytkownika, który istnieje w systemie
+
+2. Pozostawia pustą wiadomość.
+
+3. Użykownik klika przycisk "Wyślij wiadomość".
+
+Oczekiwania	Użytkownik nie wysłał wiadomości do nieistniejącego użytkownika. Pojawia się komunikat o braku możliwości wysłania pustej wiadomości.
+########################
+Przypadek testowy	
+Identyfikator	4.6
+Nazwa	Wysyłanie wiadmomości podczas utraty połączenia z internetem
+Opis	Sprawdzenie, czy użytkownik nie może wysłać pustej wiadomość gdy traci połączenie z internetem podczas wysyłania wiadomości
+Kroki	
+1. Użytkownik wyszukuje użytkownika, który istnieje w systemie
+
+2. Redaguje poprawną wiadomość.
+
+3. Użykownik traci połączenie z internetem podczas wysyłania wiadomości
+
+4. Użykownik klika przycisk "Wyślij wiadomość".
+
+Oczekiwania	Użytkownik nie wysłał wiadomości do istniejącego użytkownika. Pojawia się komunikat o braku możliwości wysłania wiadomości z powodu braku połączenia z internetem. 
