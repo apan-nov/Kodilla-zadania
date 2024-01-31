@@ -8,22 +8,13 @@
 # a nie samo rozwiązanie. Nie zapomnij o uwzględnieniu przypadków szczególnych.
 from contextlib import suppress
 from behave import given
-
-number = ""
-list_of_divisors = []
-
-while True:
-	try:
-		number = int(input("Podaj liczbę: "))
-	except ValueError:
-		continue
-	else:
-		break
+import pytest
 
 
-def prime_factors(number2: int):
+def prime_factors(number2):
+	list_of_divisors = []
 	divider = 2
-	while number2 != 1:
+	while number2 > 1:
 		if number2 % divider == 0:
 			list_of_divisors.append(divider)
 			number2 = number2 / divider
@@ -34,52 +25,52 @@ def prime_factors(number2: int):
 
 
 # number is not a number
-@given("not_a_number")
-def not_a_number(self):
-	result = prime_factors(number)
-	assert result is not None, "this should be WrongInputError"
+@given("test_not_a_number with {number}")
+def test_not_a_number(self, number):
+	with pytest.raises(ValueError):
+		result = prime_factors(int(number))
 
 
 # number is null
-@given("null")
-def null(self):
-	number2 = ''
-	result = prime_factors(number)
-	assert result != '', "this should be EmptyInputError"
+@given("test_null with {number}")
+def test_null(self, number):
+	with pytest.raises(ValueError):
+		result = prime_factors(int(number))
 
 
 # number is not an int
-@given("not_a_int")
-def not_a_int(self):
-	result = prime_factors(number)
-	assert result is not None, "this should be NotIntInputError"
+@given("test_not_a_int with {number}")
+def test_not_a_int(self, number):
+	with pytest.raises(ValueError):
+		result = prime_factors(int(number))
 
 
 # number is 0
-@given("not_a_zero")
-def not_a_zero(self):
-	result = prime_factors(number)
+@given("test_zero with {number}")
+def test_not_a_zero(self, number):
+	result = prime_factors(int(number))
+	aaa = result
 	assert result is not None, "this should be ZeroInputError"
 
 
 # number is negative int
-@given("negrative_int")
-def negrative_int(self):
-	result = prime_factors(number)
+@given("test_negative_int with {number}")
+def test_negative_int(self, number):
+	result = prime_factors(int(number))
 	assert result is not None, "this should be NegativeIntInputError"
 
 
 # number is Prime number
-@given("prime_number")
-def prime_number(self):
-	result = prime_factors(number)
+@given("test_prime_number with {number}")
+def test_prime_number(self, number):
+	result = prime_factors(int(number))
 	assert type(result) == list, "this should be Prime"
 
 
 # number is not a Prime number
-@given("not_a_prime_number")
-def not_a_prime_number(self):
-	result = prime_factors(number)
+@given("test_not_a_prime_number with {number}")
+def test_not_a_prime_number(self, number):
+	result = prime_factors(int(number))
 	assert type(result) == list, "this should be NotPrime"
 
 # 1) Write tests that pass only if feature specifications are met - DONE
